@@ -15,8 +15,11 @@ class Form
     /*
      * Get the html/css class for the given field.
      */
-    fieldClass(field, defaultClass = '', errorClass = '') {
-        return this.errors.has(field) ? `${defaultClass} ${errorClass}` : defaultClass;
+    fieldClass(field, defaultClass = null, errorClass = null) {
+        let defaultClassString = typeof defaultClass == 'function' ? defaultClass(field) : defaultClass;
+        let errorClassString = typeof errorClass == 'function' ? errorClass(field) : errorClass;
+
+        return this.errors.has(field) ? `${defaultClassString} ${errorClassString}` : defaultClassString;
     }
 
     /*
