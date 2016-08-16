@@ -4,7 +4,7 @@ import FormErrors from './form-errors';
 
 function FormHelpers (Vue) {
 
-    Object.defineProperty(Vue, '$forms', {
+    Object.defineProperty(Vue.prototype, '$forms', {
 
         /*
          * Create a new Form instance.
@@ -47,8 +47,26 @@ function FormHelpers (Vue) {
         submit(method, uri, form, formData = null) {
             return Http.sendForm(method, uri, form, formData);
         }
+    });
+
+    Vue.mixin({
+
+        /*
+         * The 'beforeCreate' life-cycle hook.
+         */
+        beforeCreate() {
+            if (typeof this.$options.forms == 'object') {
+                registerForms(this.$options.forms).bind(this);
+            }
+        }
 
     });
+}
+
+function registerForms(forms) {
+    for (var form in forms) {
+        Object.defineProperty(this._data, form, forms[form]);
+    }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
