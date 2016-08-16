@@ -13,6 +13,13 @@ class Form
     }
 
     /*
+     * Get the html/css error class for the given field.
+     */
+    errorClass(field, errorClass, defaultClass = '') {
+        return this.errors.has(field) ? `${errorClass} ${defaultClass}` : defaultClass;
+    }
+
+    /*
      * Finish processing the form.
      */
     finishProcessing() {
