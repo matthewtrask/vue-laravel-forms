@@ -121,7 +121,7 @@ _Components installed Separately_
 or
 
 ```
-<div :class="userRegistrationForm.field('email', 'form-group', 'has-error')">
+<div :class="userRegistrationForm.fieldClass('email', 'form-group', 'has-error')">
     // Truncated for brevity
 </div>
 ```
