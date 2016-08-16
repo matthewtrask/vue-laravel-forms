@@ -71,7 +71,7 @@ _Via a POST request (Components installed via Vue)_
 ```
 Vue.component('user-registration-form', {
 
-    // Create your form the one of the techniques described above.
+    // Create your form using one of the techniques described above.
     
     methods: {
         registerUser() {
@@ -86,7 +86,7 @@ _Via a POST request (Components installed separately)_
 ```
 Vue.component('user-registration-form', {
 
-    // Create your form the one of the techniques described above.
+    // Create your form using one of the techniques described above.
     
     methods: {
         registerUser() {
