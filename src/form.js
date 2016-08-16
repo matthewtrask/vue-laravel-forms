@@ -15,7 +15,7 @@ class Form
     /*
      * Get the html/css class for the given field.
      */
-    fieldClass(field, defaultClass = null, errorClass = null) {
+    fieldClass(field, defaultClass = '', errorClass = '') {
         let defaultClassString = typeof defaultClass == 'function' ? defaultClass(field) : defaultClass;
         let errorClassString = typeof errorClass == 'function' ? errorClass(field) : errorClass;
 
