@@ -61,7 +61,7 @@ class FormErrors
             this.errors = errors;
         } else {
             this.errors = {
-                form: ['An unknown error has occured']
+                form: ['Something went wrong. Please try again or contact customer support.']
             }
         }
     }
