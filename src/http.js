@@ -16,7 +16,6 @@ export default {
      * Helper method for submitting a form as a POST request.
      */
     postForm(uri, form) {
-
         let formData = new FormData;
 
         forIn(form.fields, (value, key) => formData.append(key, value));
