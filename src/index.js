@@ -1,6 +1,7 @@
 import Http from './http';
 import Form from './form';
 import FormErrors from './form-errors';
+import { has } from 'lodash';
 
 function FormHelpers (Vue) {
 
@@ -88,16 +89,22 @@ function registerForms(vm) {
         let dataIsFunction = typeof vm.$options.data == 'function';
         let data = dataIsFunction ? vm.$options.data() : vm.$options.data;
 
-        console.log(data);
+        console.log('before:', data);
+
         if (typeof data == 'undefined') {
             data = {};
         }
 
         for (var form in forms) {
+            if (has(data, form)) {
+                throw new Error(`The form, ${form}, has a name which is colliding with another form or data property!`)
+            }
             data[form] = new Form(forms[form]);
         }
 
-        vm.$options.data = dataIsFunction ? function () { return data } : data;
+        console.log('after:', data);
+
+        vm.$options.data = function () { return data };
     }
 }
 
