@@ -82,7 +82,7 @@ function FormHelpers (Vue) {
  * Register the forms in the forms option.
  */
 function registerForms(vm) {
-    let forms = this.$options.forms;
+    let forms = vm.$options.forms;
 
     if (typeof forms == 'object') {
         let dataIsFunction = typeof vm.$options.data == 'function';
@@ -93,7 +93,7 @@ function registerForms(vm) {
         }
 
         for (var form in forms) {
-            data[form] = forms[form];
+            data[form] = new Form(forms[form]);
         }
 
         vm.$options.data = dataIsFunction ? function () { return data } : data;
