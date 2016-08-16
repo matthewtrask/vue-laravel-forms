@@ -134,7 +134,7 @@ Vue.component('user-registration-form', {
 </div>
 ```
 
-Alternative, pass callbacks for the default class and error class.
+Alternatively, pass callbacks for `defaultClass` and `errorClass`.
 ```
 <div :class="userRegistrationForm.fieldClass('email', getFieldClass, getFieldErrorClass)">
     // Truncated for brevity
