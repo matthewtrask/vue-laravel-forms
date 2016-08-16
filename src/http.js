@@ -44,7 +44,8 @@ export default function (Http = null) {
         * Helper method for submitting a form.
         */
        sendForm(method, uri, form, formData = null) {
-           let submitter = Http || Vue.http;
+           let submitter = Http ? Http : Vue.http;
+
            let data = formData ? formData : JSON.parse(JSON.stringify(form.fields));
 
            return new Promise((resolve, reject) => {
