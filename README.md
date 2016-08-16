@@ -168,5 +168,9 @@ Vue.component('user-registration-form', {
 ## Contributing
 If you have any questions, feedback or would like to make improvements, **please** open an issue or pull request. 
 
+## Credits
+* [Taylor Otwell](https://github.com/taylorotwell) - This project is heavily based on the form helpers that were
+included in the alpha release of [laravel/spark](https://spark.laravel.com).
+
 ## License
 [MIT](https://opensource.org/licenses/MIT)
