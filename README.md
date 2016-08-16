@@ -1,5 +1,5 @@
 # vue-laravel-forms
-Form helpers for Laravel backed Vue.js projects.
+Form helpers for [Laravel](https://laravel.com) backed [Vue.js](https://vuejs.org) projects.
 
 
 ## Installation
