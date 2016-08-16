@@ -5,7 +5,7 @@ export default {
      * Helper method for submitting a form as a DELETE request.
      */
     deleteForm(uri, form) {
-        return this.$sendForm('delete', uri, form);
+        return this.sendForm('delete', uri, form);
     },
 
     /*
@@ -17,7 +17,7 @@ export default {
 
         forIn(form.fields, (value, key) => formData.append(key, value));
 
-        return sendForm('post', uri, form, formData);
+        return this.sendForm('post', uri, form, formData);
     },
 
 
@@ -25,7 +25,7 @@ export default {
      * Helper method for submitting a form as a PUT request.
      */
     putForm(uri, form) {
-        return sendForm('put', uri, form);
+        return this.sendForm('put', uri, form);
     },
 
     /*
