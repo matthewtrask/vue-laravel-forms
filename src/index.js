@@ -89,8 +89,6 @@ function registerForms(vm) {
         let dataIsFunction = typeof vm.$options.data == 'function';
         let data = dataIsFunction ? vm.$options.data() : vm.$options.data;
 
-        console.log('before:', data);
-
         if (typeof data == 'undefined') {
             data = {};
         }
@@ -101,8 +99,6 @@ function registerForms(vm) {
             }
             data[form] = new Form(forms[form]);
         }
-
-        console.log('after:', data);
 
         vm.$options.data = function () { return data };
     }

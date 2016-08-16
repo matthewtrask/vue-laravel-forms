@@ -1,6 +1,6 @@
 {
   "name": "vue-laravel-forms",
-  "version": "1.0.8-beta",
+  "version": "1.0.9-beta",
   "description": "Form helpers for Laravel backed Vue.js projects.",
   "main": "dist/index.js",
   "scripts": {
