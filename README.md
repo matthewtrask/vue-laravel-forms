@@ -75,7 +75,7 @@ Vue.component('user-registration-form', {
     
     methods: {
         registerUser() {
-            this.$form.post('api/users', this.userRegistrationForm)
+            this.$forms.post('api/users', this.userRegistrationForm)
                 .then(respose => console.log(response.data))
                 .catch(errors => console.log(errors));
         }

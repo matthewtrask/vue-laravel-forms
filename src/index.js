@@ -4,7 +4,7 @@ import FormErrors from './form-errors';
 
 function FormHelpers (Vue) {
 
-    Object.defineProperty(Vue, '$form', {
+    Object.defineProperty(Vue, '$forms', {
 
         /*
          * Create a new Form instance.
