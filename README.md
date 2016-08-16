@@ -165,3 +165,8 @@ Vue.component('user-registration-form', {
 </p>
 ```
 
+## Contributing
+If you have any questions, feedback or would like to make improvements, **please** open an issue or pull request. 
+
+## License
+[MIT](https://opensource.org/licenses/MIT)
