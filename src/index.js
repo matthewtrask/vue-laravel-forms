@@ -2,7 +2,7 @@ import Http from './http';
 import Form from './form';
 import FormErrors from './form-errors';
 
-function Plugin (Vue) {
+function FormHelpers (Vue) {
 
     Object.defineProperty(Vue, '$form', {
 
@@ -52,7 +52,7 @@ function Plugin (Vue) {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(Plugin);
+    window.Vue.use(FormHelpers);
 }
 
-export { Plugin, Http, Form, FormErrors }
+export { FormHelpers, Http, Form, FormErrors }
