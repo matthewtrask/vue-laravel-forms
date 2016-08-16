@@ -62,9 +62,27 @@ function FormHelpers (Vue) {
     Vue.mixin({
 
         /*
-         * The 'beforeCreate' life-cycle hook.
+         * The 'beforeCreate' life-cycle hook for Vue 2.0.
          */
         beforeCreate() {
+            let forms = this.$options.forms;
+
+            if (typeof forms == 'object') {
+                let dataIsFunction = typeof this.$options.data == 'function';
+                let data = dataIsFunction ? this.$options.data() : this.$options.data || {};
+
+                for (var form in forms) {
+                    data[form] = forms[form];
+                }
+
+                this.$options.data = dataIsFunction ? function () { return data } : data;
+            }
+        },
+
+        /*
+         * The 'init' life-cycle hook for Vue 1.0.
+         */
+        init() {
             let forms = this.$options.forms;
 
             if (typeof forms == 'object') {
