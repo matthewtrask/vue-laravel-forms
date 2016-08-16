@@ -113,17 +113,53 @@ _Components installed Separately_
 ### Template Helpers
 ##### Check a field for errors
 ```
-<div class="form-group {{ userRegistrationForm.errors.has('email') ? 'has-error' : '' }}">
-    // Truncated for brevity
-</div>
+Vue.component('user-registration-form', {
+
+    methods: {
+        checkFieldForError(field) {
+            return this.userRegistrationForm.errors.has('field');
+        }
+    }
+
+});
 ```
 
-or
+##### Use the `fieldClass` helper method
+
+`formInstance.fieldClass(field, defaultClass, errorClass)`
 
 ```
 <div :class="userRegistrationForm.fieldClass('email', 'form-group', 'has-error')">
     // Truncated for brevity
 </div>
+```
+
+Alternative, pass callbacks for the default class and error class.
+```
+<div :class="userRegistrationForm.fieldClass('email', getFieldClass, getFieldErrorClass)">
+    // Truncated for brevity
+</div>
+```
+```
+Vue.component('user-registration-form', {
+
+    methods: {
+        getFieldClass(field) {
+            return {
+                'form-group': true,
+                'email-field': this.field == 'email'
+            }
+        },
+        
+        getFieldErrorClass(field) {
+            return {
+                'has-error': true,
+                'password-error': this.field == 'password'
+            }
+        }
+    }
+
+});
 ```
 
 ##### Get the error message for a field
