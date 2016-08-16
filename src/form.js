@@ -1,4 +1,5 @@
 import FormErrors from './form-errors';
+import { assignIn, forIn, keys, pick } from 'lodash';
 
 class Form
 {
@@ -8,8 +9,25 @@ class Form
     constructor(fields) {
         this.busy = false;
         this.errors = new FormErrors();
-        this.fields = fields;
-        this.success = false;
+        this.initialFields = fields;
+        this.successful = false;
+        assignIn(this, fields);
+    }
+
+    /*
+     * Get the form's fields.
+     */
+    get fields() {
+        let fields = pick(this, keys(this.initialFields));
+
+        // Here we unset null fields.
+        forIn(fields, function (value, key) {
+            if (value == null) {
+                delete fields[key];
+            }
+        })
+
+        return fields;
     }
 
     /*
@@ -28,6 +46,21 @@ class Form
     finishProcessing() {
         this.busy = false;
         this.successful = true;
+    }
+
+    /*
+     * Completely reset the form.
+     */
+    reset() {
+        this.resetFields();
+        this.resetStatus();
+    }
+
+    /*
+     * Reset the fields to their initial state..
+     */
+    resetFields() {
+        keys(this.initialFields).forEach((key) => this[key] = this.initialFields[key]);
     }
 
     /*

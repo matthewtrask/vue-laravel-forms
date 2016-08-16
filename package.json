@@ -1,11 +1,15 @@
 {
   "name": "vue-laravel-forms",
-  "version": "0.0.1-alpha",
+  "version": "1.0.0-beta",
   "description": "Form helpers for Laravel backed Vue.js projects.",
   "main": "dist/index.js",
   "scripts": {
     "compile": "babel --presets=es2015 -d dist src",
     "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cklmercer/vue-laravel-forms.git"
   },
   "keywords": [
     "vue",
@@ -13,7 +17,7 @@
     "forms"
   ],
   "author": "Cody Mercer <me@codymercer.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.13.2",

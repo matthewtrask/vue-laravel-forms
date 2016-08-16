@@ -1,4 +1,4 @@
-# vue-laravel-forms (NOT READY FOR USE)
+# vue-laravel-forms
 Form helpers for Laravel backed Vue.js projects.
 
 
@@ -31,7 +31,8 @@ import { Form, FormErrors, Http } from 'vue-laravel-forms'
 window.AppForm = Form;
 window.AppFormErrors = FormErrors;
 
-_.extend(App, Http)
+_.extend(App, new Http()) // Vue.http config not needed
+_.extend(App, new Http(Vue.http)) // Vue.http config needed
 ```
 
 ## Usage
@@ -110,6 +111,7 @@ _Components installed Separately_
 * `App.putForm(uri, form)`
 * `App.sendForm(method, uri, form)`
 
+
 ### Template Helpers
 ##### Check a field for errors
 ```
@@ -145,17 +147,11 @@ Vue.component('user-registration-form', {
 
     methods: {
         getFieldClass(field) {
-            return {
-                'form-group': true,
-                'email-field': this.field == 'email'
-            }
+            return `form-group ${field}`;
         },
         
         getFieldErrorClass(field) {
-            return {
-                'has-error': true,
-                'password-error': this.field == 'password'
-            }
+            return `has-error ${field}-error`;
         }
     }
 
