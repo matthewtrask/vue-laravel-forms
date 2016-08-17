@@ -108,4 +108,4 @@ if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(FormHelpers);
 }
 
-export { FormHelpers, Form, FormErrors }
+export { FormHelpers, Http, Form, FormErrors }
