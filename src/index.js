@@ -5,7 +5,8 @@ import { has } from 'lodash';
 
 function FormHelpers (Vue) {
 
-    let formHelper = new Http(Vue.http);
+    let http = Vue.hasOwnProperty('http') ? Vue.http : null;
+    let formHelper = new Http(http);
 
     Object.defineProperty(Vue.prototype, '$forms', {
         get() {
