@@ -22,7 +22,7 @@ or
 
 ```
 window.Vue = require('vue');
-reqiure('vue-laravel-forms');
+require('vue-laravel-forms');
 ```
 
 Alternatively, you may import the various components of this plugin separately.
