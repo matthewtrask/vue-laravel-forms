@@ -5,11 +5,6 @@ import { has } from 'lodash';
 
 function FormHelpers (Vue) {
 
-    if (typeof Vue.http == 'undefined') {
-        console.error('Please install vue-resource before using vue-laravel-forms')
-        return;
-    }
-
     let formHelper = new Http(Vue.http);
 
     Object.defineProperty(Vue.prototype, '$forms', {
