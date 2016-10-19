@@ -166,9 +166,6 @@ Vue.component('user-registration-form', {
 </p>
 ```
 
-## Examples
-* [User Registration Component](https://github.com/cklmercer/vue-laravel-forms-example)
-
 ## Contributing
 If you have any questions, feedback or would like to make improvements, **please** open an issue or pull request. 
 
