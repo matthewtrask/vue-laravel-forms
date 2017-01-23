@@ -11,7 +11,7 @@ npm install vue-laravel-forms
 
 ## Setup
 **Install plugin within project**
-```
+```javascript
 import Vue from 'vue'
 import { FormHelpers } from 'vue-laravel-forms'
 
@@ -20,13 +20,13 @@ Vue.use(FormHelpers);
 
 or 
 
-```
+```javascript
 window.Vue = require('vue');
 require('vue-laravel-forms');
 ```
 
 Alternatively, you may import the various components of this plugin separately.
-```
+```javascript
 import { Form, FormErrors, Http } from 'vue-laravel-forms'
 
 window.AppForm = Form;
@@ -39,7 +39,7 @@ _.extend(App, new Http(Vue.http)) // Vue.http config needed
 ## Usage
 ### Creating a Form
 _Components installed via Vue_
-```
+```javascript
 Vue.component('user-registration-form', {
     forms: {
         userRegistrationForm: {
@@ -53,7 +53,7 @@ Vue.component('user-registration-form', {
 ```
 
 _Components installed separately_
-```
+```javascript
 Vue.component('user-registration-form', {
     data() {
         return { 
@@ -70,7 +70,7 @@ Vue.component('user-registration-form', {
 
 ### Submitting a Form
 _Via a POST request (Components installed via Vue)_
-```
+```javascript
 Vue.component('user-registration-form', {
 
     // Create your form using one of the techniques described above.
@@ -85,7 +85,7 @@ Vue.component('user-registration-form', {
 ```
 
 _Via a POST request (Components installed separately)_
-```
+```javascript
 Vue.component('user-registration-form', {
 
     // Create your form using one of the techniques described above.
@@ -115,7 +115,7 @@ _Components installed Separately_
 
 ### Template Helpers
 ##### Check a field for errors
-```
+```javascript
 Vue.component('user-registration-form', {
 
     methods: {
@@ -129,21 +129,23 @@ Vue.component('user-registration-form', {
 
 ##### Use the `fieldClass` helper method
 
-`formInstance.fieldClass(field, defaultClass, errorClass)`
-
+```javascript
+formInstance.fieldClass(field, defaultClass, errorClass)
 ```
+
+```vue
 <div :class="userRegistrationForm.fieldClass('email', 'form-group', 'has-error')">
     // Truncated for brevity
 </div>
 ```
 
 Alternatively, pass callbacks for `defaultClass` and `errorClass`.
-```
+```vue
 <div :class="userRegistrationForm.fieldClass('email', getFieldClass, getFieldErrorClass)">
     // Truncated for brevity
 </div>
 ```
-```
+```javascript
 Vue.component('user-registration-form', {
 
     methods: {
@@ -160,7 +162,7 @@ Vue.component('user-registration-form', {
 ```
 
 ##### Get the error message for a field
-```
+```vue
 <p class="help-block">
     {{ userRegistrationForm.errors.get('email') }}
 </p>
