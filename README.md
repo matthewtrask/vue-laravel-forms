@@ -129,7 +129,9 @@ Vue.component('user-registration-form', {
 
 ##### Use the `fieldClass` helper method
 
-`formInstance.fieldClass(field, defaultClass, errorClass)`
+```javascript
+formInstance.fieldClass(field, defaultClass, errorClass)
+```
 
 ```vue
 <div :class="userRegistrationForm.fieldClass('email', 'form-group', 'has-error')">
