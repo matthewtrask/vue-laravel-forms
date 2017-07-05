@@ -120,7 +120,7 @@ Vue.component('user-registration-form', {
 
     methods: {
         checkFieldForError(field) {
-            return this.userRegistrationForm.errors.has('field');
+            return this.userRegistrationForm.errors.has(field);
         }
     }
 
