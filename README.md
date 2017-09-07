@@ -78,7 +78,7 @@ Vue.component('user-registration-form', {
     methods: {
         registerUser() {
             this.$forms.post('api/users', this.userRegistrationForm)
-                .then(respose => console.log(response.data))
+                .then(response => console.log(response.data))
                 .catch(errors => console.log(errors));
         }
     }
@@ -93,7 +93,7 @@ Vue.component('user-registration-form', {
     methods: {
         registerUser() {
             App.postForm('api/users', this.userRegistrationForm)
-                .then(respose => console.log(response.data))
+                .then(response => console.log(response.data))
                 .catch(errors => console.log(errors));
         }
     }
